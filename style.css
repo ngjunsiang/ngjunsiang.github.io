@@ -3,8 +3,12 @@ h1 {
 }
 
 h2 {
-    /* color: #00ff00; */
-    color: red;
+    color: #0000ff;
+    /* color: pink; */
+}
+
+h2.about {
+    font-size: 72px;
 }
 
 h4.job-title {
