@@ -20,6 +20,14 @@
 
 title: JS Ng
 email: ngjunsiang@gmail.com
+timezone: SGT
+collections:
+  pages:
+    title: Pages
+    output: true
+  posts:
+    title: Posts
+    output: true
 description: >- # this means to ignore newlines until "baseurl:"
   Jun Siang Ng's Page
 baseurl: "" # the subpath of your site, e.g. /blog
@@ -28,7 +36,7 @@ twitter_username: ""
 github_username: ngjunsiang
 
 # Build settings
-theme: minima
+theme: monophase
 plugins:
   - jekyll-feed
 
