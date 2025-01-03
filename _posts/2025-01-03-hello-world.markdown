@@ -3,7 +3,9 @@ layout: post
 title:  "Hello World!"
 date:   2025-01-03 11:08:40 +0000
 categories: update
+description: First post
 ---
+
 Ho! For a while now I’ve been meeting people, and, not having a link to send them about the things I’m working on, I finally decided to create a personal site.
 
 This is that site.
