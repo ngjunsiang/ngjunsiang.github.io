@@ -4,9 +4,12 @@ title: About
 permalink: /about/
 ---
 
-![placeholder for profile picture](https://placehold.co/200x200)
-
-Hi, I’m JS! In my job, I teach Computing at high school level in a junior college in Singapore. All the time, I’m exploring how we learn and know what we know, and how we teach it to others.
+<div style="display: flex; align-items: flex-start;">
+    <img src="https://placehold.co/100x100" alt="placeholder for profile picture" style="margin-right: 20px;">
+    <div>
+        Hi, I’m JS! In my job, I teach Computing at high school level in a junior college in Singapore. All the time, I’m exploring how we learn and know what we know, and how we teach it to others.
+    </div>
+</div>
 
 ### Things I’m working on
 
