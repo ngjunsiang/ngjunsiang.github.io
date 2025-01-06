@@ -30,6 +30,8 @@ permalink: /about/
 
 ### Reads
 
-Take a peek into my mind 👀
+- [Why Tacit Knowledge is More Important Than Deliberate Practice](https://commoncog.com/tacit-knowledge-is-a-real-thing/), [Copying Better: How To Acquire The Tacit Knowledge of Experts](https://commoncog.com/how-to-learn-tacit-knowledge/)  
+These two articles by Cedric Chin are part of the [Expertise Acceleration](https://commoncog.com/expertise/) series from Commoncog, and lay out a model for expert knowledge, and a process for extracting and transmitting it.
 
-(to be added)
+- [Teaching Tech Together](https://teachtogether.tech/en/index.html)
+  While ostensibly about teaching computing, in the process of doing so it lays out many cognitive models of learning and teaching that have influenced the way I design and implement my teaching modules.
