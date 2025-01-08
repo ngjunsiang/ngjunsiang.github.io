@@ -1,7 +1,6 @@
 ---
-layout: post
 title:  "Hello World!"
-date:   2025-01-03 11:08:40 +0000
+date:   2025-01-03
 categories: update
 description: First post
 ---
