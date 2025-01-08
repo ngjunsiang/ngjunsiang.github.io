@@ -1,8 +1,8 @@
 ---
-title: 'Getting Started with Project Management: A Beginner''s Guide'
-tags:
-  - project-management
-date: '2025-01-08'
+title: "Getting Started with Project Management: A Beginner's Guide"
+categories: project-management
+date: 2025-01-08
+description: "Why and when you need to manage a project"
 ---
 You want to get started on a project, or you’ve already started but things aren’t going as smoothly as you’d hoped. Maybe this sounds familiar:
 
