@@ -1,6 +1,7 @@
 ---
 title: "Getting Started with Project Management: A Beginner's Guide"
 categories: project-management
+layout: post
 date: 2025-01-08
 description: "Is a task feeling overwhelming for you? You may have a project on your hands instead."
 permalink: project-management-getting-started
