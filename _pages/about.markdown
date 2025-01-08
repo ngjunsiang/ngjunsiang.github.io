@@ -35,3 +35,11 @@ These two articles by Cedric Chin are part of the [Expertise Acceleration](https
 
 - [Teaching Tech Together](https://teachtogether.tech/en/index.html)
   While ostensibly about teaching computing, in the process of doing so it lays out many cognitive models of learning and teaching that have influenced the way I design and implement my teaching modules.
+
+### Highlights
+
+If you don’t want to dig through the archives for the highlights, they are collated here.
+
+{% for entry in site.data.highlights %}
+{% include highlight.html entry=entry %}
+{% endfor %}

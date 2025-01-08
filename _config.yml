@@ -22,9 +22,6 @@ title: JS Ng
 email: ngjunsiang@gmail.com
 timezone: SGT
 collections:
-  articles:
-    title: Articles
-    output: true
   pages:
     title: Pages
     output: true
