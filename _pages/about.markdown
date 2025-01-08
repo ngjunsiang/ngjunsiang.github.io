@@ -35,3 +35,20 @@ These two articles by Cedric Chin are part of the [Expertise Acceleration](https
 
 - [Teaching Tech Together](https://teachtogether.tech/en/index.html)
   While ostensibly about teaching computing, in the process of doing so it lays out many cognitive models of learning and teaching that have influenced the way I design and implement my teaching modules.
+
+### Highlights
+
+If you don’t want to dig through the archives for the highlights, they are collated here.
+
+#### Project Management
+
+This is a series of articles written for first-timers in collaborative projects.
+
+<ol>
+{% for post in site.categories["project-management"] %}
+    <li>
+    <a href="{{post.url}}">{{post.title}}</a>
+    <p>{{post.description}}</p>
+    </li>
+{% endfor %}
+</ol>
