@@ -2,8 +2,10 @@
 title: "Getting Started with Project Management: A Beginner's Guide"
 categories: project-management
 date: 2025-01-08
-description: "Why and when you need to manage a project"
+description: "Is a task feeling overwhelming for you? You may have a project on your hands instead."
+permalink: project-management-getting-started
 ---
+
 You want to get started on a project, or you’ve already started but things aren’t going as smoothly as you’d hoped. Maybe this sounds familiar:
 
 > “I had this great idea for an app. I worked on it whenever I had free time. After a few weeks, I had lots of code files and notes everywhere. Then exams came up, and I had to take a break. When I came back ... I couldn’t remember what I was planning to do next, or why I made certain decisions. Some of my code didn’t even make sense anymore!”
