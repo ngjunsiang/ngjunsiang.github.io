@@ -1,6 +1,7 @@
 ---
 title: "Preparing Your Project for Contributors: A Guide for Managers"
 categories: project-management
+layout: post
 date: 2025-01-08
 description: "Found a contributor? Congratulations! You are now a project manager. Read this if it’s your first time."
 permalink: preparing-for-contributors
