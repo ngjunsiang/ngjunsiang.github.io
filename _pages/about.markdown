@@ -40,15 +40,6 @@ These two articles by Cedric Chin are part of the [Expertise Acceleration](https
 
 If you don’t want to dig through the archives for the highlights, they are collated here.
 
-#### Project Management
-
-This is a series of articles written for first-timers in collaborative projects.
-
-<ol>
-{% for post in site.categories["project-management"] %}
-    <li>
-    <a href="{{post.url}}">{{post.title}}</a>
-    <p>{{post.description}}</p>
-    </li>
+{% for entry in site.data.highlights %}
+{% include highlight.html entry=entry %}
 {% endfor %}
-</ol>
