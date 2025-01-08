@@ -1,7 +1,7 @@
 ---
 title: "Contributing to Projects: A Guide for Beginners"
 categories: project-management
-date: 2024-01-08
+date: 2025-01-08
 description: "Is something holding you back from contributing to a project? Or did you try to contribute to a project, but find your efforts unappreciated? Read this."
 permalink: contributing-to-projects
 ---
