@@ -16,6 +16,7 @@ permalink: /about/
 - [intro-to-python](https://github.com/nyjc-computing/intro-to-python), [programming-in-python](https://github.com/nyjc-computing/programming-in-python): self-guided courses for learning Python and programming patterns
 - [open-dis-python](https://github.com/open-dis/open-dis-python): contributing to the Python implementation of the [DIS version 7](https://en.wikipedia.org/wiki/Distributed_Interactive_Simulation) (IEEE-1278.1) protocol [status: ongoing]
 - TimelineBot (WIP): A telegram bot to help me automate my current ~~todo~~ done-list system
+- Onboarding (working title): a digital onboarding process for Computing students to get set up before their first lesson
 - Pseudo (working title): a code editor for (Cambridge 9618) pseudocode
 - Scrollback (working title): an ORM for representing changes to a spreadsheet as an event stream, to enable time-aware search
 - [Layman’s Guide to Computing](https://buttondown.com/laymansguide): a (dormant) newsletter introducing Computing concepts in layperson language; [archived version](/laymansguide/) [status: in maintenance]
