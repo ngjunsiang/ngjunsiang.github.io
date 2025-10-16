@@ -23,7 +23,7 @@ Alas, 30 years later, computers can type long coherent essays back to us, talk t
 
 ## Writing for a computer
 
-When you sit down at a terminal to write code, you are immediately reminded that computers are still just "electrified thinking sand". The code you write is not being sent to ChatGPT, it is being sent to a program written in approximately 100,000 lines of C code, which interprets it according to a strict set of rules, then translates it into 1s and 0s which comprise the machine instructions that the CPU can understand. 100,000 lines of C code sounds like a lot, but it is actually only about 5 megabytes of text, which compiles to a program about the same size. In contrast, the TikTok app on Android is 2.2GB when installed.
+When you sit down at a terminal to write code, you are immediately reminded that computers are still just "electrified thinking sand". The code you write is not being sent to ChatGPT, it is being sent to a program written in approximately 100,000 lines of C code, which interprets it according to a strict set of rules, then translates it into 1s and 0s which comprise the machine instructions that the CPU can understand. 100,000 lines of C code sounds like a lot, but it is actually only about 5 megabytes of text, which compiles to a program about the same size. In contrast, the TikTok app on Android is 2.2 gigabytes (2,200 megabytes) when installed.
 
 Understanding this intellectually does nothing to assuage the emotional frustration you feel, as a beginner, when encountering errors or unexpected behavior in your code. When you spend an hour hunting a bug in the code only to realise that it was caused by a one-character typo, it can feel like _Python is maliciously giggling behind your screen_.
 
