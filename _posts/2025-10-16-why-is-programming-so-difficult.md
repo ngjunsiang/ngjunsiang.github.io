@@ -74,3 +74,11 @@ In short, your code will outgrow your ability to manage it if you don't learn ho
 ---
 
 This is post zero. The next few posts will explore each of these topics in more detail and open up a new domain of knowledge and skills that make you a better programmer.
+
+1. [The Myth of Easy Programming](/the-myth-of-easy-programming)
+2. [The Grammar of Operations](/the-grammar-of-operations)
+3. [The Landscape of Knowledge](/the-landscape-of-knowledge)
+4. [The Layers of Difficulty](/the-layers-of-difficulty)
+5. [Thinking Like A Programmer](/thinking-like-a-programmer)
+6. [The Software Ecosystem](/the-software-ecosystem)
+7. [Teaching and Learning Programming](/teaching-and-learning-programming)
