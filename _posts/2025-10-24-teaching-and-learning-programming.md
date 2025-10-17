@@ -88,7 +88,7 @@ Type the following expressions line by line in the code cell below and run them 
 ...
 ```
 
-Run the code, see what happens. Modify the code, see what happens. Data types, operators, expressions, functions, etc. are demonstrated as they are introduced, instead of being chunked upfront. A programming concept is not just a chunk of text, but a small experiment that the learner can run, modify, and observe.
+Run the code, see what happens. Modify the code, see what happens. Data types, operators, expressions, functions, and other concepts are demonstrated as they are introduced, instead of being chunked upfront. A programming concept is not just a chunk of text, but a small experiment that the learner can run, modify, and observe.
 
 ## Assessments vs Projects
 
@@ -96,9 +96,9 @@ Assessments are often used to gauge a learner's understanding of specific concep
 
 In the early stages of learning programming, we use small, autograded assessment tasks for students to get quick feedback on specific skills: "Write a function that takes two numbers and returns their sum." We provide the tests, they write the function, and the system tells them if it passes or fails. This helps them build confidence in specific skills.
 
-However, relying only on assessments results in students learning to "pass the test". They write code that "works" for the test cases, but fail in readability or rigor. They become adept at solving small, isolated problems, but struggle to integrate those skills into larger projects. And they become isolated, unable to collaborate or communicate their ideas effectively.
+However, relying only on assessments results in students learning to "pass the test". They write code that "works" for the test cases, but fail in readability or rigor. They become adept at solving small-scale, unrelated problems, but struggle to integrate those skills into larger projects. And they become isolated thinkers, unable to collaborate or communicate their ideas effectively.
 
-Instead, we believe programming is learned socially, even if written alone. We start students learning programming in group contexts as early as we can, once they have sufficient foundation to communicate their ideas. They begin learning algorithms with pair programming exercises, before we (deliberately) start them on a small group project without teaching them tools for collaboration. They struggle, they flounder, and they make mistakes, but they also understand the value of the tools we get them to use later—having _experienced the pain of not using them_, they are more willing to take the "medicine".
+Instead, we believe programming is learned socially, even if written alone. We start students learning programming in group contexts as early as we can, once they have sufficient foundation to communicate their ideas. They begin to learn algorithms with pair programming exercises, before we (deliberately) start them on a small group project without teaching them tools for collaboration. They struggle, they flounder, and they make mistakes, but they also understand the value of the tools we get them to use later. Having _experienced the pain of not using them_, they are more willing to take the "medicine".
 
 While these group projects help students to understand the need to write code for others to read, they don't run long enough for students to develop helpful collaboration processes. We follow up with a longer-term capstone project in Year 2, where students work in groups of more than 12 over most of a school term, building a full application from scratch. A project of this scale is large enough that they have to use version control, code reviews, issue tracking, and project management to succeed. They learn to communicate effectively, manage their time, and work collaboratively towards a common goal.
 

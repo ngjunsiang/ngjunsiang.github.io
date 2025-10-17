@@ -69,7 +69,7 @@ Each project has a history. Each codebase has developed its conventions. Each co
 
 ## Writing For Humans
 
-You look at your codebase again and realize: that code isn't just for computers to compile. It's for humans to read, understand, and build upon. You have actual users, actual contributors, and actual maintainers reading it, trying to make sense of it, and then contribute to it. You didn't write a book, you created a living, breathing document that is simultaneously a record of the past, a blueprint for running the present, and a frame for the future.
+You look at your codebase again and realize: that code isn't just for computers to compile. It's for humans to read, understand, and build upon. You have actual users, actual contributors, and actual maintainers reading it, trying to make sense of it, and then contributing to it. You didn't write a book, you created a living, breathing document that is simultaneously a record of the past, a blueprint for running the present, and a frame for the future.
 
 With a renewed sense of responsibility, you start to think about how to make your code more accessible. You add documentation explaining the purpose of code. You add annotations specifying the datatypes you are dealing with. You add code comments giving context to seemingly obscure decisions and logic. You adopt established conventions and patterns that make your project more legible to would-be contributors.
 
