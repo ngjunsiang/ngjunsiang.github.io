@@ -21,11 +21,11 @@ Yet at the same time, these students can find themselves struggling in a formal 
 
 A formal curriculum has a different focus: the learning of [programming syntax](the-grammar-of-operations) is a necessary foundation, but not the ultimate goal. Just as a literature student doesn't just learn to read and write words, but to analyze and interpret texts, _a Computing student must learn to think computationally_.
 
-Consider: the earliest programming language still in use today is Fortran, released in 1957. But the concepts studied in computer science date back even further, to the 1930s and 1940s, with pioneers like Alan Turing and Alonzo Church laying the theoretical groundwork for what computation means. These ideas are rooted in even earlier ideas about computational operations and algorithms credited to pioneers like Charles Babbage and Ada Lovelace in the early 19th century. **The study of computational operations pre-dates the use of programming languages by more than a century.** This means that learning to program is not just about learning a language; it's about learning a way of thinking that has evolved over many decades.
+Consider: the earliest programming language still in use today is Fortran, released in 1957. But the concepts studied in computer science date back even further, to the 1930s and 1940s, with pioneers like Alan Turing and Alonzo Church laying the theoretical groundwork for what computation means. These ideas are rooted in even earlier ideas about computational operations and algorithms credited to pioneers like Charles Babbage and Ada Lovelace in the _early 19th century_. **The study of computational operations pre-dates the use of programming languages by more than a century.** This means that learning to program is not just about learning a language; it's about learning a way of thinking that has evolved over many decades.
 
 ## Building A Mental Model
 
-Most self-taught programmers don't consciously think about how code works, because programming languages have so successfully abstracted away the inner workings of the computer. These programmers are like novice language learners, stringing together sentences and relying on the listener's experience to fill in the gaps for them. Listeners will gracefully handle simple requests for "may I know who can I discover the restroom?" but not an entire essay in non-fluent tourist-speak. "They understood what I meant!" the novice proudly proclaims, unaware of how much effort the listener had to expend to interpret their meaning.
+Most self-taught programmers don't consciously think about how code works, because programming languages have so successfully abstracted away the inner workings of the computer. These programmers are like novice language learners, stringing together sentences and relying on the interpreter's experience to fill in the gaps for them. Human interpreters will gracefully handle simple requests for "may I know who can I discover the restroom?" but not an entire essay in non-fluent tourist-speak. "They understood what I meant!" the novice proudly proclaims, unaware of how much effort the listener had to expend to interpret their meaning.
 
 Just as a successful manager must have a mental model of the business and its core operations, a successful programmer must have a mental model of **how code works**. Computational thinking is not about memorizing code — it’s about predicting how your instructions behave.
 
@@ -34,26 +34,26 @@ Just as a successful manager must have a mental model of the business and its co
 A beginner programmer thinks: "Given the name of an item, I need to look it up in this list and return its numerical position and price."
 
 ```python
-item_name = input("Enter item name: ")
+target_name = input("Enter item name: ")
 # Search the items list for an item with a matching name
 for item in items:
-    if item.name == item_name:
+    if item.name == target_name:
         # get the numerical position of the item in the items list
         item_position = items.index(item)
         # retrieve the item object from the items list by position
         item = items[item_position]
-        print(f"{item_position}: {item_name} -- ${item.price}")
+        print(f"{item_position}: {target_name} -- ${item.price}")
 ```
 
 An experienced programmer, thinking computationally, would realize: "`items.index(item)` performs another search through the entire list, which is unnecessary. I can reduce the number of operations carried out by only searching the list once."
 
 ```python
-item_name = input("Enter item name: ")
+target_name = input("Enter item name: ")
 # Search the items list for an item with a matching name
 for item_position in range(len(items)):
     item = items[item_position]
-    if item.name == item_name:
-        print(f"{item_position}: {item_name} -- ${item.price}")
+    if item.name == target_name:
+        print(f"{item_position}: {target_name} -- ${item.price}")
 ```
 
 Both programs achieve the same result in almost the same number of lines of code, but the second program avoids repeating the search. For a 10-item list, the first program will require 10 times more operations than the second in the worst case. The difference becomes stark with a 1,000-item list: the first program now requires 1,000 times more operations than the second.
@@ -76,7 +76,7 @@ Armed with these two abstract hammers, they apply them to every nail they encoun
 
 Before long, their codebase is littered with `lst`, `dct`, `new_list`, `data`, and other generic names. Now their `enemies` list is missing an enemy and they can't trace why; it could have been modified by any of the 50 functions they created that can take a list.
 
-> Civilization advances by extending the number of important operations which we can perform without thinking about them.
+> Civilization advances by extending the number of important operations which we can perform without thinking about them.  
 > — Alfred North Whitehead, Introduction to Mathematics (1911)
 
 It takes a different kind of laziness to think: "I've made this mistake 50 times. Instead of repeating it, is there a way to just avoid it altogether?" We can create an Iterator for safely iterating over collections, create an Action to represent the possible actions a player can take, design an InventorySystem where armor only goes in armor slots and items go in a Backpack.

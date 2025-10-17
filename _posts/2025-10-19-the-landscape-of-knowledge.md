@@ -31,7 +31,7 @@ Each of these areas is complex enough to be a multi-decade career for a single p
 
 I'm not saying "don't make a game engine or calendar app until you have learned X, Y, and Z." I'm saying—you know how in videogame RPGs, if you were aware you are about to face a _huge boss fight_, you'd do a lot more preparation? And remember to save your game first? You do yourself a favor by recognizing that some projects are _huge boss fights_, and adjusting your expectations accordingly. As an old internet meme goes, "[one does not simply make an app](https://knowyourmeme.com/memes/one-does-not-simply-walk-into-mordor)".
 
-At the same time, one should not expect to master multiple domains before writing one's first useful program. You would likely be past working age by then! The path to mastery is littered with flawed attempts, dead ends, and false starts. Still, very very few people can have their first five projects go poorly and still find the motivation to keep going. You want to have some early successes, and that means tackling something just out of your reach, but not so far that you get overwhelmed and give up.
+At the same time, one should not expect to master multiple domains before writing one's first useful program. You would likely be past working age by then! The path to mastery is littered with flawed attempts, dead ends, and false starts. Very few people can have their first five projects go poorly and still find the motivation to keep going. You want to have some early successes, and that means tackling something just out of your reach, but not so far that you get overwhelmed and give up.
 
 ## Conclusion
 
