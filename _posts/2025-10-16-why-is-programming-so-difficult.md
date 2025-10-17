@@ -85,7 +85,9 @@ This is post zero. The next few posts will explore each of these topics in more 
    Not all programming challenges are the same — and they require different kinds of thinking.
 5. [Thinking Like A Programmer](/thinking-like-a-programmer)  
    The mental transformations that make programming easier — and why they take so long.
-6. [The Software Ecosystem](/the-software-ecosystem)  
+6. [Thinking Like A Software Engineer](/thinking-like-a-software-engineer)  
+   Creating reliability at scale by thinking about how code interacts with other code, people, and processes.
+7. [The Software Ecosystem](/the-software-ecosystem)  
    Why collaboration, version control, and teamwork introduce a new dimension of difficulty.
-7. [Teaching and Learning Programming](/teaching-and-learning-programming)  
+8. [Teaching and Learning Programming](/teaching-and-learning-programming)  
    Reflections on pedagogy, common traps, and better metaphors for newcomers.
