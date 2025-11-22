@@ -295,7 +295,9 @@ Done. Let's make sure we didn't break anything; quick reboot first:
 [rpi@little-pi]$ sudo reboot
 ```
 
-... Phew. But, wifi didn't connect. I configured wpa_supplicant earlier but not DHCP client to run on boot. I usually configure with NetworkManager, but since this is a server setup I'm going to ask ChatGPT.
+## Troubleshooting wifi
+
+... Phew. But, wifi didn't connect. I configured `wpa_supplicant earlier` but not DHCP client to run on boot. I usually configure with NetworkManager, but since this is a server setup I'm going to ask ChatGPT.
 
 Some back-and-forth later, I uninstalled `iwd` which was fighting for the wifi, and have a `/etc/systemd/network/20-wlan0.network` file:
 
@@ -307,10 +309,142 @@ Name=wlan0
 DHCP=yes
 ```
 
-Still not connecting. `ip link` shows `wlan0` is up. `iw dev wlan0 link` shows it's not connected. `wpa_supplicant -i wlan0 -c /etc/wpa_supplicant/wpa_supplicant.conf` shows that authentication is timing out.
+Still not connecting. `ip link` shows `wlan0` is up. `iw dev wlan0 link` shows it's not connected. `wpa_supplicant -i wlan0 -c /etc/wpa_supplicant/wpa_supplicant.conf` shows that authentication is timing out. ChatGPT found in a search that on Broadcom `brcmfmac` (especially BCM4345 / 43455), there are known issues around offloaded authentication (SWSUP) or WPA3/SAE handshake. The fix is to disable those offloads through `modprobe` by creating a modprove config file `/etc/modprobe.d/brcmfmac.conf` with the following content:
 
-After being led on a short wild goose chase by ChatGPT, I realized the drivers were being loaded from `/lib/firmware/6.12.41-1-MANJARO-RPI5` which was ... empty. Oops, somehow the system upgrade earlier had not installed `linux-firmware` for the RPi5.
+```conf
+# Disable SWSUP + SAE to resolve wlan0 authentication failure
+options brcmfmac roamoff=1 feature_disable=0x82000
+```
+
+Reboot again. Still not working.
+
+From ChatGPT's suggestion to `dmesg | grep brcmfmac` (searching for Broadcom-related messages), I saw:
+
+```
+brcmfmac mmc1:0001:1: loading /lib/firmware/6.12.41-1-MANJARO-RPI5/brcm/brcmfmac43455-sdio.raspberrypi,500.bin failed with error -20
+```
+
+It seems the drivers were being loaded from `/lib/firmware/6.12.41-1-MANJARO-RPI5` which was ... empty. Oops, somehow the system upgrade earlier had not installed `linux-firmware` for the RPi5?
 
 Since I'm going to need to dig up a LAN cable, that's it for today.
 
-[Timestamp: 2025-11-??]
+[Timestamp: 2025-11-22]
+
+With a LAN cable, and searching `pacman` for the requisite packages again, it appears they are all installed: `firmware-raspberrypi`, `linux-firmware`, even `linux-rpi5`. Back to ChatGPT again. Apparently the above error message indicate that the kernel may be searching in a prefixed directory before searching in a fallback directory. It recommended `dmesg | grep -i brcmfmac`:
+
+```bash
+[rpi@little-pi]$ dmesg | grep -i brcmfmac
+brcmfmac mmc1:0001:1: loading /lib/firmware/6.12.41-1-MANJARO-RPI5/brcm/brcmfmac43455-sdio.raspberrypi,500.bin failed with error -20
+... other similar error -20 messages ...
+usbcore: registered new interface driver brcmfmac
+brcmfmac mmc1:0001:1: brcmf_c_preinit_dcmds: Firmware: BCM4345/6 wl0: Apr 15 2021 03:03:20 version 7.45.234 (4ca95bb CY) FWID 01-996384e2
+```
+
+So it was loaded after all. ChatGPT suggested checking the driver parameters:
+
+```bash
+[rpi@little-pi]$ ls /sys/module/brcmfmac/parameters/
+alternative_fw_path  debug  roamoff
+[rpi@little-pi]$ cat /sys/module/brcmfmac/parameters/roamoff
+1
+```
+
+Odd, `feature_disable` is not listed. ChatGPT suggested the module might not support that parameter, but we can check:
+
+```bash
+[rpi@little-pi]$ modinfo brcmfmac | grep parm
+... selected parameters shown here only ...
+parm:    debug:Level of debug output (int)
+parm:    feature_disable:Disable features (int)
+parm:    roamoff:Do not use internal roaming engine (int)
+```
+
+Hmm, it does suppport. ChatGPT suggests it might not be exposed. Anyway, I don't care if it's supported I care about working wifi.
+
+Back to checking link status:
+
+```bash
+[rpi@little-pi]$ ip link show wlan0
+3: wlan0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP mode DORMANT group default qlen 1000
+    link/ether b8:27:eb:xx:xx:xx brd ff:ff:ff:ff:ff:ff
+[rpi@little-pi]$ iw dev wlan0 link
+Connected to xx:xx:xx:xx:xx:xx (on wlan0)
+  SSID: Your_SSID
+  freq: 5180.0
+  RX: 4346 bytes (32 packets)
+  TX: 2854 bytes (24 packets)
+  signal: -17 dBm
+  rx bitrate: 6.0 MBit/s
+  tx bitrate: 24.0 MBit/s
+  bss flags: short-slot-time
+  dtim period: 4
+  beacon int: 200
+```
+
+Ooh, surprise, the fix worked! I don't like setting parameters unnecessarily since it might complicate future issues, so let's remove `feature_disable=0x82000` from `/etc/modprobe.d/brcmfmac.conf` and reboot again. Nope, no connectivity. Put it back, reboot, and wifi is back. A very strange issue with the driver not exposing `feature_disable` and yet it is still needed.
+
+Anyway, working Arch Linux on a Raspberry Pi 5! Next, to have wifi issues handled automatically; time to install NetworkManager. And not forgetting to disable `wpa_supplicant` to avoid wifi-fighting (NetworkManager already uses `wpa_supplicant`).
+
+```bash
+[rpi@little-pi]$ yay -S networkmanager
+...
+[rpi@little-pi]$ sudo systemctl enable NetworkManager
+... 3 symlinks created ...
+[rpi@little-pi]$ sudo systemctl disable wpa_supplicant.service
+...
+[rpi@little-pi]$ sudo systemctl disable wpa_supplicant@wlan0.service
+...
+```
+
+Connect to wifi using NetworkManager so it can manage reconnections automatically:
+
+```bash
+[rpi@little-pi]$ nmcli device wifi connect "SSID" password "PASSWORD"
+Device 'wlan0' successfully activated with 'xxxx-xxxx-xxxx-xxxx'.
+```
+
+Reboot: wifi still works 🙏
+
+# SSH
+
+Next, to set up SSH so I can access the Pi headlessly. `openssh` is already installed so I'm skipping that.
+
+```bash
+[rpi@little-pi]$ sudo systemctl enable sshd
+[rpi@little-pi]$ sudo systemctl start sshd
+```
+
+Basic security: disable root login and password authentication. Edit `/etc/ssh/sshd_config`:
+
+```conf
+PermitRootLogin no
+PasswordAuthentication yes
+```
+
+SSH authentication not set up here since I don't plan to connect remotely yet.
+
+Following other security recommendations from ChatGPT:
+
+1. Install `fail2ban` to protect against brute-force attacks.
+
+```bash
+[rpi@little-pi]$ yay -S fail2ban
+...
+[rpi@little-pi]$ sudo systemctl enable fail2ban
+Created symlink /etc/systemd/system/multi-user.target.wants/fail2ban.service → /usr/lib/systemd/system/fail2ban.service.
+[rpi@little-pi]$ sudo systemctl start fail2ban
+```
+
+2. Set up a basic firewall using `ufw` (Uncomplicated Firewall).
+
+```bash
+[rpi@little-pi]$ yay -S ufw
+...
+[rpi@little-pi]$ sudo ufw allow 22/tcp
+Rules updated
+Rules updated (v6)
+[rpi@little-pi]$ sudo ufw enable
+Firewall is active and enabled on system startup
+```
+
+Now I can connect to the RPi through VSCode (after instaling the Remote - SSH extension) using the username and password set during installation.
