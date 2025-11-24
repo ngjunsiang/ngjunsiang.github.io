@@ -3,7 +3,7 @@ title: "Arch Linux on a Raspberry Pi 5"
 categories: computers
 layout: post
 date: 2025-10-25
-description: "Notes on setting up Arch Linux on a Raspbery Pi 5."
+description: "Notes on setting up Arch Linux on a Raspberry Pi 5."
 permalink: arch-linux-on-a-raspberry-pi-5
 ---
 
