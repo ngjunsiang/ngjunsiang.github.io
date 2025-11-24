@@ -7,7 +7,7 @@ description: "Notes on setting up Arch Linux on a Raspberry Pi 5."
 permalink: arch-linux-on-a-raspberry-pi-5
 ---
 
-ARch Linux is my go-to Linux distribution for its simplicity and ease of build (through AUR). I was aware it had ARM support (through [Arch Linux ARM](https://archlinuxarm.org/)), but it turns out official Raspberry Pi 5 support is, at the time of writing, not yet available. Guides for getting the Pi 5 up and running are sparse and rather contradictory, and I'm not quite willing to go down a rabbithole for this project; I want to *do things* with the Pi, not tinker with OS installation for days on end.
+Arch Linux is my go-to Linux distribution for its simplicity and ease of build (through AUR). I was aware it had ARM support (through [Arch Linux ARM](https://archlinuxarm.org/)), but it turns out official Raspberry Pi 5 support is, at the time of writing, not yet available. Guides for getting the Pi 5 up and running are sparse and rather contradictory, and I'm not quite willing to go down a rabbithole for this project; I want to *do things* with the Pi, not tinker with OS installation for days on end.
 
 It turns out Manjaro ARM has official Raspberry Pi 5 support, and since Manjaro is based on Arch Linux, I decided to give that a try instead, through the official [manjaro-arm-installer](https://gitlab.manjaro.org/manjaro-arm/applications/manjaro-arm-installer).
 
@@ -127,7 +127,7 @@ Last login: Fri Jan 26 09:01:55 on tty1
 
 Clearly some setup is needed.
 
-First, connect to WiFi. There aren't many options for connecting to a WPA network, I'm using [`wpa_supplicant`](https://wiki.archlinux.org/title/Wpa_supplicant) here.
+My home router isn't easily accessible and I haven't configured wifi on the raspberry pi image yet; perhaps a hasty oversight. Nevertheless, the Raspberry Pi is now booted and offline, and there aren't many options for connecting to a WPA network, so I'm using [`wpa_supplicant`](https://wiki.archlinux.org/title/Wpa_supplicant) here.
 
 ```bash
 [rpi@little-pi]$ sudo nano /etc/wpa_supplicant/wpa_supplicant.conf
