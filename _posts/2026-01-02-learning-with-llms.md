@@ -88,7 +88,7 @@ If you are a student, don’t let worried adults put you off from learning, with
 - “Tell me what I may have missed.”
 - “Could you explain that a different way?”
 - “My understanding is: <...> Is that correct?”
-- “Could you walk me through <topic>, one concept at a time?”
+- “Could you walk me through \<topic\>, one concept at a time?”
 - “What should I ask myself to know if I have understood this correctly?”
 
 If you are a teacher, you might have forgotten what it’s like to learn or try something new. That makes it difficult to teach students how to navigate topics that may be foreign to them: topics so familiar to us that we suffer the [curse of knowledge](https://en.wikipedia.org/wiki/Curse_of_knowledge). We can’t teach students how to use AI assistants for learning if we haven’t done it ourselves—the advice would land flat.
