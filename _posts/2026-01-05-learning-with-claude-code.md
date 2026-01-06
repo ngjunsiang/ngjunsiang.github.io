@@ -92,7 +92,7 @@ It proceeded to unpack and dump six concepts, along with illustrative code: Clas
 
 Fortunately for it, I was familiar with those topics and did not need further explanation: I’ve used them in Python, I just didn’t know how to use them in Flutter. But I also noticed some syntax that didn’t quite make sense—Flutter syntax looks quite similar to Java syntax, which I am familiar with, but some parts seem to be more compact than usual. This might be *syntax sugar*, a form of programming shorthand that language designers usually add to the language to make things easier for expert programmers who are already familiar with the syntax. As a beginner, however, this syntactic sugar makes it harder to understand the code if I didn't know the full, verbose form.
 
--> Let's skip shorthand at first: show me the vanilla syntax and we'll add syntactic sugar later when I'm more comfortable
+> Let's skip shorthand at first: show me the vanilla syntax and we'll add syntactic sugar later when I'm more comfortable
 
 It proceeded to dump the same six topics on me, but now with full verbose syntax and no syntax sugar. Still a way to go as a tutor Claude Code, but that’s okay. There were a few new concepts I wasn’t familiar with, so I asked away:
 
