@@ -94,7 +94,7 @@ Fortunately for it, I was familiar with those topics and did not need further ex
 
 > Let's skip shorthand at first: show me the vanilla syntax and we'll add syntactic sugar later when I'm more comfortable
 
-It proceeded to dump the same six topics on me, but now with full verbose syntax and no syntax sugar. Still a way to go as a tutor Claude Code, but that’s okay. There were a few new concepts I wasn’t familiar with, so I asked away:
+It proceeded to dump the same six topics on me, but now with full verbose syntax and no syntax sugar. Still a way to go as a tutor eh, Claude Code? But that’s okay. There were a few new concepts I wasn’t familiar with, so I asked away:
 
 > say more about how a private constructor is used? Why do we use a private constructor here?
 
