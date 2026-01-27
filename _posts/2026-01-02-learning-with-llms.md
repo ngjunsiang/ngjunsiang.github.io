@@ -1,6 +1,6 @@
 ---
 title: "Learning with LLMs"
-categories: learning
+tags: learning
 layout: post
 date: 2026-01-02
 description: "How to make LLMs useful for learning"
@@ -86,7 +86,7 @@ And perhaps that's something AI assistants can do: they don't judge, criticise, 
 If you are a student, don’t let worried adults put you off from learning, with or without AI assistants. While these AI assistants carry great potential for harm if prompted maliciously, they can benefit you if you approach them with the intention to learn. Some key phrases go a long way when you use them with an AI assistant to try to cover your blind spots:
 
 - “Tell me what I may have missed.”
-- “Could you explain that a different way?”
+  - “Could you explain that a different way?”
 - “My understanding is: <...> Is that correct?”
 - “Could you walk me through \<topic\>, one concept at a time?”
 - “What should I ask myself to know if I have understood this correctly?”

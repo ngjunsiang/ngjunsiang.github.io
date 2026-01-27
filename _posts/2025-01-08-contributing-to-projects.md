@@ -1,6 +1,6 @@
 ---
 title: "Contributing to Projects: A Guide for Beginners"
-categories: project-management
+tags: project-management
 layout: post
 date: 2025-01-08
 description: "Is something holding you back from contributing to a project? Or did you try to contribute to a project, but find your efforts unappreciated? Read this."
@@ -70,7 +70,7 @@ When we’re new to a project, it’s natural to feel overwhelmed or uncertain. 
 - Hide problems until they’re bigger
 - Waste time struggling alone
 - Leave others unsure how to help
-- Create anxiety for everyone involved
+  - Create anxiety for everyone involved
 
 This leads to an important principle: **Clear communication is more valuable than looking competent**. Every expert started as a beginner who had questions.
 
@@ -90,8 +90,8 @@ This teaches us another principle: **Projects need reliable information more tha
 When we’re working on something, our progress is clear to us. We know our challenges, our pace, our next steps. But others can’t see inside our process. Without clear updates:
 
 - Teams can’t plan effectively
-- Help can’t arrive when needed
-- Work might be duplicated
+  - Help can’t arrive when needed
+  - Work might be duplicated
 - Trust becomes harder to maintain
 
 This reveals our third communication principle: **Sharing progress is as important as making progress**. Even a quick “still stuck on X” helps everyone understand where things stand.
@@ -121,7 +121,7 @@ These stories point to some fundamental needs in project contribution:
 
 - Regular quick updates
 - Sharing both progress and problems
-- Being clear about your availability
+  - Being clear about your availability
 - Asking for help when needed
 
 ### Managing Commitments
@@ -147,14 +147,14 @@ These stories point to some fundamental approaches for contributing:
 - Begin with simple contributions
 - Learn the process
 - Build trust and understanding
-- Grow your involvement naturally
+  - Grow your involvement naturally
 
 ### Start with Communication
 
 - Ask before making big changes
 - Share ideas early
 - Listen to feedback
-- Learn from the community
+  - Learn from the community
 
 ## The Contribution Mindset
 

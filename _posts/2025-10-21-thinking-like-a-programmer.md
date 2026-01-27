@@ -1,6 +1,6 @@
 ---
 title: "Thinking Like A Programmer"
-categories: programming
+tags: programming
 layout: post
 date: 2025-10-21
 description: "The mental transformations that make programming easier — and why they take so long."

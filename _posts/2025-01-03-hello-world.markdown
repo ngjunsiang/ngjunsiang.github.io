@@ -2,7 +2,7 @@
 title:  "Hello World!"
 date:   2025-01-03
 layout: post
-categories: update
+tags: update
 description: First post
 ---
 

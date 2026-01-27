@@ -1,6 +1,6 @@
 ---
 title: "The Layers of Difficulty"
-categories: programming
+tags: programming
 layout: post
 date: 2025-10-20
 description: "Not all programming challenges are the same — and they require different kinds of thinking."

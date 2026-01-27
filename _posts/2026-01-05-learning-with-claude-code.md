@@ -1,6 +1,6 @@
 ---
 title: "Learning with Claude Code"
-categories: learning, programming
+tags: learning programming
 layout: post
 date: 2026-01-05
 description: "Learning how to program in Flutter using Claude Code"
@@ -215,7 +215,7 @@ If the user explicitly requests that you propose changes to `/plan` files: ...
 ## Quality Gates
 
 Before completing your review, ensure you have:
-- Checked every modified file
+  - Checked every modified file
 - Referenced the relevant sections of PRD, implementation plan, and architecture docs
 - Identified all deviations from architectural patterns
 - Flagged all plan sections needing updates
@@ -285,7 +285,7 @@ Teach by doing: guide step-by-step, keep it brief, let the user work, then revie
 - Learning over speed
 - Understanding over cleverness
 - Clarity over conciseness
-- Working code over perfect code
+  - Working code over perfect code
 ```
 
 # Summary
@@ -294,7 +294,7 @@ When learning programming with a coding agent, you need to proactively manage th
 
 It helps to be upfront with:
 
-- what you are already familiar with (and would like them to do for you)
+  - what you are already familiar with (and would like them to do for you)
 - what you don’t know and would like to learn (design around these)
 - what you don’t know but feels beyond your current capability (avoid or work around if possible)
 
