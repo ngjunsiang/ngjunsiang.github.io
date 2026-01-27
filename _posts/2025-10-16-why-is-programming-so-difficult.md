@@ -1,6 +1,6 @@
 ---
 title: "Why is programming so difficult?"
-categories: programming
+tags: programming
 layout: post
 date: 2025-10-16
 description: "Why programming looks simple but feels impossibly hard when you start."

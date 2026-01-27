@@ -1,6 +1,6 @@
 ---
 title: "Arch Linux on a Raspberry Pi 5"
-categories: computers
+tags: computers
 layout: post
 date: 2025-10-25
 description: "Notes on setting up Arch Linux on a Raspberry Pi 5."

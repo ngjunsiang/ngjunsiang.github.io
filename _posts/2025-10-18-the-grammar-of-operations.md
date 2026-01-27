@@ -1,6 +1,6 @@
 ---
 title: "The Grammar of Operations"
-categories: programming
+tags: programming
 layout: post
 date: 2025-10-18
 description: "Programming languages as rigid linguistic systems that require fluency"

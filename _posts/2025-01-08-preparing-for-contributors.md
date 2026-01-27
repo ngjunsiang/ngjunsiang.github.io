@@ -1,6 +1,6 @@
 ---
 title: "Preparing Your Project for Contributors: A Guide for Managers"
-categories: project-management
+tags: project-management
 layout: post
 date: 2025-01-08
 description: "Found a contributor? Congratulations! You are now a project manager. Read this if it’s your first time."
@@ -44,8 +44,8 @@ This teaches us an important principle: **Projects need different types of docum
 ## The Hidden Knowledge
 
 Those small “Oh, right…” moments show us something important: every project accumulates invisible knowledge. Things that are so obvious to you that:
-- They feel like common knowledge
-- You do them automatically
+  - They feel like common knowledge
+  - You do them automatically
 - You forget they’re even steps
 - You assume everyone knows them
 
@@ -55,7 +55,7 @@ This leads us to another principle: **Make the implicit explicit**. Try to notic
 
 The second story shows us what happens when process documentation is missing. Even with great code docs, contributors need to know:
 - How to submit changes
-- Which branch to work from
+  - Which branch to work from
 - How to format commit messages
 - What the review process is
 
@@ -90,7 +90,7 @@ These stories point to different types of preparation needed:
 - Commit message format
 
 ### For Understanding
-- Project overview
+  - Project overview
 - Code organisation
 - Key concepts
 - Design decisions

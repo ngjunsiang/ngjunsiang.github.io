@@ -1,6 +1,6 @@
 ---
 title: "The Myth of Easy Programming"
-categories: programming
+tags: programming
 layout: post
 date: 2025-10-17
 description: "Why programming looks simple but feels impossibly hard when you start."

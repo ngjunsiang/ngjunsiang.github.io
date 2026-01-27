@@ -1,6 +1,6 @@
 ---
 title: "The Landscape of Knowledge"
-categories: programming
+tags: programming
 layout: post
 date: 2025-10-19
 description: "Programming doesn’t happen in a vacuum — it sits at the intersection of many domains."
