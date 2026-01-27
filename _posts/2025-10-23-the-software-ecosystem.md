@@ -1,6 +1,6 @@
 ---
 title: "The Software Ecosystem"
-categories: programming
+tags: programming
 layout: post
 date: 2025-10-23
 description: "Why collaboration, version control, and teamwork introduce a new dimension of difficulty."

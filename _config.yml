@@ -41,6 +41,11 @@ theme: monophase
 plugins:
   - jekyll-feed
 
+# Tag pages
+tag_page_layout: tag_page
+tag_page_dir: tag
+tag_permalink_style: pretty
+
 # Exclude from processing.
 # The following items will not be processed, by default.
 # Any item listed under the `exclude:` key here will be automatically added to

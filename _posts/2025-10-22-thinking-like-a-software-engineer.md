@@ -1,6 +1,6 @@
 ---
 title: "Thinking Like A Software Engineer"
-categories: programming
+tags: programming
 layout: post
 date: 2025-10-22
 description: "Creating reliability at scale by thinking about how code interacts with other code, people, and processes."
