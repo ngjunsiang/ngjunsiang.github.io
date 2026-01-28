@@ -1,6 +1,6 @@
 ---
 title: "Teaching and Learning Programming"
-tags: programming
+tags: learning programming
 layout: post
 date: 2025-10-24
 description: "Reflections on pedagogy, common traps, and better metaphors for newcomers."
