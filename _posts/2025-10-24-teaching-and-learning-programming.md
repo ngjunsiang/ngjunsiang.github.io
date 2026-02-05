@@ -58,8 +58,8 @@ class Dog:
         print("Woof!")
 ```
 
-This draws on a familiar metaphor: dogs are real-world objects with properties (name) and behaviors (bark)—good! But then the student has to use this pattern in a program and they can't figure out how the `Dog` class gets applied to, say, a `Temperature` or `Vector` class—bad!. Abstractions are powerful only when they arise from something concrete.
-`
+This draws on a familiar metaphor: dogs are real-world objects with properties (name) and behaviors (bark)—good! But then the student has to use this pattern in a program and they can't figure out how the `Dog` class gets applied to, say, a `Temperature` or `Vector` class—bad! Abstractions are powerful only when they arise from something concrete.
+
 Instead, I try to start with a few concrete examples of code that we can actually use:
 
 ```python
