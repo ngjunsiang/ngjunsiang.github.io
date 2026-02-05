@@ -39,7 +39,7 @@ Wanting to "learn programming" is like wanting to "learn a language". If you ask
 
 ## The limitations of a body
 
-While some programming languages are designed to be easy to learn, there is a limit to how much they can protect you from the harsh realities of being merely *a computer made of "thinking sand"*.
+While some programming languages are designed to be easy to learn, there is a limit to how much they can protect you from the fact that the program is running on *a computer made of "thinking sand"*.
 
 Your own body is probably the easiest thing you know how to operate. You can walk, run, jump, and pick things up without thinking about it. But there are also times when _something feels wrong_; you feel under the weather, your back is killing you, or you can't separate yourself from the porcelain throne. And sometimes you don't even know what caused it!
 
