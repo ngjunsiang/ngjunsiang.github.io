@@ -1,0 +1,82 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+# Drafting studio launcher.
+#
+#   bin/draft                 # studio on http://127.0.0.1:4040, jekyll serve on :4000
+#   bin/draft --no-jekyll     # don't spawn jekyll (use an already-running one)
+#   bin/draft --port 4041     # custom studio port
+#   bin/draft --open          # open the browser automatically
+#
+# The studio edits _drafts/ and _posts/ in this repo; publishing and git
+# operations happen through its UI. Preview requires `jekyll serve --drafts`,
+# which this script spawns unless one is already listening on the port.
+
+require 'socket'
+require 'tmpdir'
+
+SCRIPT = __FILE__
+ROOT = File.expand_path('..', __dir__)
+
+def port_open?(port, host = '127.0.0.1')
+  Socket.tcp(host, port, connect_timeout: 0.4) { |s| s.close } 
+  true
+rescue Errno::ECONNREFUSED, Errno::ETIMEDOUT, IOError, SocketError
+  false
+end
+
+unless ENV['DRAFT_STUDIO_BUNDLED']
+  begin
+    require 'webrick'
+  rescue LoadError
+    exec({'DRAFT_STUDIO_BUNDLED' => '1'}, 'bundle', 'exec', 'ruby', SCRIPT, *ARGV)
+  end
+end
+
+args = ARGV.dup
+options = { port: 4040, jekyll_port: 4000, jekyll: true, open: false }
+until args.empty?
+  case args.shift
+  when '--port' then options[:port] = args.shift.to_i
+  when '--jekyll-port' then options[:jekyll_port] = args.shift.to_i
+  when '--no-jekyll' then options[:jekyll] = false
+  when '--open' then options[:open] = true
+  when '--root' then ROOT.replace(File.expand_path(args.shift))
+  else warn "Unknown option; see comments in bin/draft"
+  end
+end
+
+jekyll_pid = nil
+jekyll_log = File.join(Dir.tmpdir, 'draft-studio-jekyll.log')
+
+if options[:jekyll]
+  if port_open?(options[:jekyll_port])
+    puts "jekyll serve already running on :#{options[:jekyll_port]} — reusing it."
+  else
+    log = File.open(jekyll_log, 'w')
+    log.sync = true
+    cmd = %w[bundle exec jekyll serve --drafts --livereload --host 127.0.0.1 --port] + [options[:jekyll_port].to_s]
+    jekyll_pid = Process.spawn(*cmd, chdir: ROOT, out: log, err: log)
+    log.close
+    puts "Spawning `#{cmd.join(' ')}` (log: #{jekyll_log})…"
+    at_exit { Process.kill('TERM', jekyll_pid) rescue nil }
+  end
+end
+
+require_relative '../_studio/server'
+
+studio = DraftStudio::Server.new(
+  root: ROOT,
+  port: options[:port],
+  jekyll_port: options[:jekyll_port]
+)
+
+trap('INT') { studio.shutdown }
+trap('TERM') { studio.shutdown }
+
+url = "http://127.0.0.1:#{options[:port]}"
+puts
+puts "  Drafting studio: #{url}"
+puts "  Preview (jekyll): http://127.0.0.1:#{options[:jekyll_port]}  #{"(starting…)" if jekyll_pid}"
+puts
+studio.start

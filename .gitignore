@@ -20,3 +20,5 @@ Gemfile.lock
 
 # Replit ignores
 .replit
+# local drafting studio
+_studio/editor-src/node_modules/

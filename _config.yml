@@ -54,6 +54,17 @@ tag_permalink_style: pretty
 # Excluded items can be processed by explicitly listing the directories or
 # their entries' file path in the `include:` list.
 #
+# Local drafting studio (bin/draft) must not be published. NOTE: on Jekyll
+# 3.10 an explicit exclude: list replaces the internal default excludes, so
+# vendor/Gemfile/.sass-cache must be repeated here or the build fails.
+exclude:
+  - bin
+  - _studio
+  - .sass-cache
+  - vendor
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
 # exclude:
 #   - .sass-cache/
 #   - .jekyll-cache/

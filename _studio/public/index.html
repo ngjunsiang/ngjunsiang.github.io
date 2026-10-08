@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Drafting Studio</title>
+  <link rel="stylesheet" href="/studio.css">
+  <link rel="stylesheet" href="/bundles/milkdown.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23111' d='M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04a1 1 0 0 0 0-1.41l-2.34-2.34a1 1 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z'/%3E%3C/svg%3E">
+</head>
+<body>
+  <header id="topbar">
+    <div class="brand">
+      <span class="brand-mark">✎</span>
+      <span class="brand-name">Drafting Studio</span>
+      <span class="brand-site" id="site-title"></span>
+    </div>
+    <div class="top-status">
+      <span id="jekyll-status" class="status-pill" title="checking…">
+        <span class="dot"></span><span class="label">jekyll</span>
+      </span>
+      <span id="branch-chip" class="chip" title="current git branch">…</span>
+      <a id="view-site" class="chip link" target="_blank" rel="noopener" title="open the live preview site">view site ↗</a>
+      <button id="btn-publish" class="btn">Publish</button>
+    </div>
+  </header>
+
+  <div id="layout">
+    <aside id="sidebar">
+      <button id="btn-new" class="btn primary block">+ New draft</button>
+      <nav id="post-list"></nav>
+    </aside>
+
+    <main id="main">
+      <section id="dashboard">
+        <h1>Start writing</h1>
+        <ol class="howto">
+          <li><b>New draft</b> — the filename, date and permalink are generated for you.</li>
+          <li><b>Write</b> — WYSIWYG or markdown source, autosaved to <code>_drafts/</code>.</li>
+          <li><b>Preview</b> — the pane on the right is your real site, rendered by <code>jekyll serve --drafts</code>.</li>
+          <li><b>Publish</b> — moves the draft into <code>_posts/</code>, then commit, push and open a PR without leaving the page.</li>
+        </ol>
+        <p class="hint">Drafts never deploy: CI builds without <code>--drafts</code>. A post goes live only when its PR merges to <code>main</code>.</p>
+      </section>
+
+      <section id="editor-page" hidden>
+        <div id="meta-card">
+          <div class="meta-head">
+            <input id="f-title" class="title-input" placeholder="Post title" autocomplete="off">
+            <button id="btn-meta-toggle" class="btn subtle" title="show/hide metadata fields">Details ▾</button>
+          </div>
+          <div id="meta-fields" hidden>
+            <div class="meta-grid">
+              <label>Date <input id="f-date" type="date"></label>
+              <label>Permalink <span class="path-prefix">/</span><input id="f-permalink" placeholder="my-post"></label>
+              <label class="wide">Tags <input id="f-tags" list="tag-suggestions" placeholder="comma, separated, tags" autocomplete="off"><datalist id="tag-suggestions"></datalist></label>
+            </div>
+            <label class="wide">Description <textarea id="f-description" rows="2" placeholder="Shown in the archive listing"></textarea></label>
+            <div class="meta-file">File: <code id="f-file"></code></div>
+          </div>
+        </div>
+
+        <div id="toolbar">
+          <div class="tb-group" id="view-switch">
+            <button data-view="write" class="tb-btn active" title="editor only">Write</button>
+            <button data-view="split" class="tb-btn" title="editor + live preview">Split</button>
+            <button data-view="preview" class="tb-btn" title="live preview only">Preview</button>
+          </div>
+          <div class="tb-sep"></div>
+          <div class="tb-group" id="mode-switch">
+            <button data-mode="wysiwyg" class="tb-btn" title="rich text editing (WYSIWYG)">Rich</button>
+            <button data-mode="source" class="tb-btn active" title="edit markdown directly">Source</button>
+          </div>
+          <div class="tb-sep"></div>
+          <div class="tb-group" id="format-tools">
+            <button data-act="bold" class="tb-btn" title="Bold (Ctrl+B)">B</button>
+            <button data-act="italic" class="tb-btn" title="Italic (Ctrl+I)"><i>I</i></button>
+            <button data-act="code" class="tb-btn" title="Inline code">&lt;&gt;</button>
+            <button data-act="h2" class="tb-btn" title="Heading">H2</button>
+            <button data-act="h3" class="tb-btn" title="Subheading">H3</button>
+            <button data-act="quote" class="tb-btn" title="Quote">❝</button>
+            <button data-act="ul" class="tb-btn" title="Bullet list">•—</button>
+            <button data-act="link" class="tb-btn" title="Link (Ctrl+K)">🔗</button>
+            <button data-act="image" class="tb-btn" title="Upload image">🖼</button>
+          </div>
+          <div class="tb-spacer"></div>
+          <span id="save-status" class="save-status"></span>
+        </div>
+
+        <div id="panes" data-view="write">
+          <div id="editor-host"></div>
+          <div id="preview-wrap">
+            <div id="preview-overlay" hidden>
+              <div id="preview-overlay-msg"></div>
+              <button id="btn-preview-retry" class="btn subtle">Retry</button>
+            </div>
+            <iframe id="preview-frame" title="Live site preview"></iframe>
+          </div>
+        </div>
+        <div id="editor-footer"><span id="footer-path"></span><span id="footer-state"></span></div>
+      </section>
+    </main>
+  </div>
+
+  <aside id="publish-drawer" hidden>
+    <div class="drawer-head">
+      <h2>Publish</h2>
+      <button id="btn-drawer-close" class="btn subtle">✕</button>
+    </div>
+    <div class="drawer-body">
+      <div class="drawer-section">
+        <div class="drawer-label">Git</div>
+        <div id="pub-branch" class="pub-branch"></div>
+        <div id="pub-dirty" class="pub-dirty"></div>
+      </div>
+      <div class="drawer-section" id="pub-draft-section">
+        <div class="drawer-label">Draft</div>
+        <button id="btn-move-to-posts" class="btn primary block">Move draft → _posts</button>
+        <p class="hint">Stamps the date into the filename. Nothing is committed yet.</p>
+      </div>
+      <div class="drawer-section">
+        <div class="drawer-label">Branch</div>
+        <div class="row">
+          <input id="pub-branch-name" placeholder="draft/my-post">
+          <button id="btn-create-branch" class="btn">Create &amp; switch</button>
+        </div>
+      </div>
+      <div class="drawer-section">
+        <div class="drawer-label">Commit</div>
+        <div class="row">
+          <input id="pub-msg" placeholder="add: my-post">
+          <button id="btn-commit" class="btn primary">Commit</button>
+        </div>
+        <label class="check"><input type="checkbox" id="pub-stage-all"> stage everything (not just this post + its images)</label>
+      </div>
+      <div class="drawer-section">
+        <div class="drawer-label">Remote</div>
+        <div class="row">
+          <button id="btn-push" class="btn">Push</button>
+          <button id="btn-pr" class="btn primary">Create PR</button>
+        </div>
+      </div>
+      <pre id="pub-log" class="pub-log"></pre>
+    </div>
+  </aside>
+
+  <dialog id="new-draft-dialog">
+    <form id="new-draft-form" method="dialog">
+      <h2>New draft</h2>
+      <label>Title <input id="nd-title" required placeholder="Personal Systems: …"></label>
+      <div class="meta-grid">
+        <label>Slug <input id="nd-slug" placeholder="auto from title"></label>
+        <label>Date <input id="nd-date" type="date"></label>
+      </div>
+      <div class="meta-grid">
+        <label>Permalink <span class="path-prefix">/</span><input id="nd-permalink" placeholder="auto from slug"></label>
+        <label>Tags <input id="nd-tags" list="tag-suggestions" placeholder="personal-systems"></label>
+      </div>
+      <label>Description <textarea id="nd-description" rows="2"></textarea></label>
+      <div class="dialog-actions">
+        <span id="nd-error" class="form-error"></span>
+        <button type="button" id="nd-cancel" class="btn subtle">Cancel</button>
+        <button type="submit" id="nd-create" class="btn primary">Create draft</button>
+      </div>
+    </form>
+  </dialog>
+
+  <input type="file" id="image-input" accept="image/*" hidden>
+  <div id="toast" hidden></div>
+  <script type="module" src="/studio.js"></script>
+</body>
+</html>
